@@ -8,4 +8,11 @@ const useRobots = () => {
   const loadRobots = useCallback(() => {
     dispatch(loadRobotsThunk());
   }, [dispatch]);
+
+  return {
+    robots,
+    loadRobots,
+  };
 };
+
+export default useRobots;
