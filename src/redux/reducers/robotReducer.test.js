@@ -33,3 +33,18 @@ describe("When it receives a new robot", () => {
     expect(newRobotList).toContainEqual(newRobot);
   });
 });
+
+describe("When it receives a robots list and a delete action with an id", () => {
+  test("Then it should return a new robots list without the deleted robot", () => {
+    const initialRobots = getRandomRobots(5);
+    const robotToDelete = initialRobots[0];
+    const action = {
+      type: actionTypes.deleteRobot,
+      id: robotToDelete.id,
+    };
+
+    const newList = robotReducer(initialRobots, action);
+
+    expect(newList).not.toContain(robotToDelete);
+  });
+});

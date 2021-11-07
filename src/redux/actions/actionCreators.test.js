@@ -40,13 +40,13 @@ describe("Given a create actionCreator", () => {
   describe("Given a delete actionCreator", () => {
     describe("When it receives an id", () => {
       test("Then it should return a delete type action with the id received", () => {
-        const idRobot = 0;
+        const id = 0;
         const expectedAction = {
           type: actionTypes.deleteRobot,
-          idRobot,
+          id,
         };
 
-        const actionResult = deleteRobotAction(idRobot);
+        const actionResult = deleteRobotAction(id);
 
         expect(actionResult).toEqual(expectedAction);
       });
