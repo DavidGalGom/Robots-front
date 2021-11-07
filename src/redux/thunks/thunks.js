@@ -10,11 +10,11 @@ export const loadRobotsThunk = () => {
   };
 };
 
-export const createRobotThunk = (toAddRobot) => {
+export const createRobotThunk = (robot) => {
   return async (dispatch) => {
-    const response = await fetch(URLApi, {
+    const response = await fetch(URLApi + "/create", {
       method: "POST",
-      body: JSON.stringify(toAddRobot),
+      body: JSON.stringify(robot),
       headers: {
         "Content-Type": "application/json",
       },
