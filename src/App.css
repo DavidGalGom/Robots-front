@@ -4,3 +4,10 @@
   background-color: lightgray;
   margin: 20px;
 }
+
+.creation-formulary {
+  margin: 20px;
+  border: solid black 2px;
+  background-color: lightblue;
+  padding: 20px;
+}
