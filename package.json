@@ -8,7 +8,6 @@
     "@testing-library/user-event": "^12.8.3",
     "faker": "^5.5.3",
     "fishery": "^2.0.0",
-    "msw": "^0.35.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
@@ -43,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "msw": "^0.35.0",
     "redux-devtools-extension": "^2.13.9"
   }
 }

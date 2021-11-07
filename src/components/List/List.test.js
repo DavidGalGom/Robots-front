@@ -29,7 +29,7 @@ describe("Given a List component", () => {
         </Provider>
       );
 
-      const robotList = screen.getByRole("list");
+      const robotList = screen.getByRole("heading");
 
       expect(robotList).toBeInTheDocument();
     });
