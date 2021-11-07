@@ -1,5 +1,9 @@
 import { getRandomRobot, getRandomRobots } from "../../factories/robotFactory";
-import { loadRobotsAction, createRobotAction } from "./actionCreators";
+import {
+  loadRobotsAction,
+  createRobotAction,
+  deleteRobotAction,
+} from "./actionCreators";
 import actionTypes from "./actionTypes";
 
 describe("Given a component actionCreator", () => {
@@ -30,6 +34,22 @@ describe("Given a create actionCreator", () => {
       const actionResult = createRobotAction(newRobot);
 
       expect(actionResult).toEqual(expectedAction);
+    });
+  });
+
+  describe("Given a delete actionCreator", () => {
+    describe("When it receives an id", () => {
+      test("Then it should return a delete type action with the id received", () => {
+        const idRobot = 0;
+        const expectedAction = {
+          type: actionTypes.deleteRobot,
+          idRobot,
+        };
+
+        const actionResult = deleteRobotAction(idRobot);
+
+        expect(actionResult).toEqual(expectedAction);
+      });
     });
   });
 });
