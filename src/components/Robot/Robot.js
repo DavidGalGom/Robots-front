@@ -1,7 +1,7 @@
 const Robot = ({ id, name, image, speed, resistance, creationDate }) => {
   return (
     <>
-      <ul>
+      <ul className="robot-card">
         <li>Robot Name: {name}</li>
         <li>
           <img src={image} alt="Robot" height="200" />

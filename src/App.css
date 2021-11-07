@@ -1,0 +1,6 @@
+.robot-card {
+  list-style: none;
+  border: solid black 2px;
+  background-color: lightgray;
+  margin: 20px;
+}
