@@ -1,11 +1,11 @@
 import useRobots from "../../hook/useRobots";
 import Button from "../../components/Button/Button";
 
-const Robot = ({ id, name, image, speed, resistance, creationDate }) => {
-  const { deleteRobots } = useRobots();
+const Robot = ({ _id, name, image, speed, resistance, creationDate }) => {
+  const { deleteRobot } = useRobots();
 
   const onDelete = () => {
-    deleteRobots(id);
+    deleteRobot(_id);
   };
   return (
     <>

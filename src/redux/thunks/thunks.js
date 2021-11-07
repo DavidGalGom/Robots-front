@@ -28,12 +28,12 @@ export const createRobotThunk = (robot) => {
   };
 };
 
-export const deleteRobotThunk = (id) => {
+export const deleteRobotThunk = (idRobot) => {
   return async (dispatch) => {
-    const response = await fetch(`${URLApi}/delete/${id}`, {
+    const response = await fetch(`${URLApi}/delete/${idRobot}`, {
       method: "DELETE",
     });
     await response.json();
-    dispatch(deleteRobotAction(id));
+    dispatch(deleteRobotAction(idRobot));
   };
 };

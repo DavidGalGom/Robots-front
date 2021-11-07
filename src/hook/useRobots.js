@@ -21,8 +21,8 @@ const useRobots = () => {
   );
 
   const deleteRobot = useCallback(
-    (id) => {
-      dispatch(deleteRobotThunk(id));
+    (idRobot) => {
+      dispatch(deleteRobotThunk(idRobot));
     },
     [dispatch]
   );
