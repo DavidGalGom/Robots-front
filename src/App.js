@@ -5,7 +5,7 @@ import List from "./components/List/List";
 function App() {
   return (
     <>
-      <h1>Robots: Full stack FIRST App</h1>
+      <h1>Robots: FIRST Full stack App</h1>
       <List />
       <FormCreate />
     </>
