@@ -15,8 +15,8 @@ const List = () => {
       <div>
         {robots.map((robot) => (
           <Robot
-            id={robot.id}
-            key={robot.id}
+            _id={robot._id}
+            key={robot._id}
             name={robot.name}
             image={robot.image}
             speed={robot.speed}

@@ -1,8 +1,10 @@
 .robot-card {
+  display: flex;
   list-style: none;
   border: solid black 2px;
   background-color: lightgray;
   margin: 20px;
+  padding: 20px;
 }
 
 .creation-formulary {
@@ -10,4 +12,10 @@
   border: solid black 2px;
   background-color: lightblue;
   padding: 20px;
+}
+
+.red-button {
+  margin: 20px;
+  border: solid black 2px;
+  height: 50px;
 }
