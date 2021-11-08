@@ -5,7 +5,7 @@ const Header = () => {
         <link to="/Login">Login</link>
       </li>
       <li>
-        <link to="/List of Robots">List of Robots</link>
+        <link to="/RobotsList">List of Robots</link>
       </li>
       <li>
         <link to="/Logout">Logout</link>
