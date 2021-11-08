@@ -1,7 +1,12 @@
+import logoutUser from "../../hook/useRobots";
 import Button from "../../components/Button/Button";
 
 const Logout = () => {
-  const logOut = () => {};
+  const logOut = () => {
+    localStorage.removeItem("user");
+
+    logoutUser();
+  };
   return (
     <>
       <h2>Logout</h2>
