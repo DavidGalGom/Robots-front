@@ -1,7 +1,10 @@
+import axios from "axios";
+import jwtDecode from "jwt-decode";
 import {
   loadRobotsAction,
   createRobotAction,
   deleteRobotAction,
+  loginUserAction,
 } from "../actions/actionCreators";
 
 const URLApi = process.env.REACT_APP_API_URL;
@@ -36,4 +39,15 @@ export const deleteRobotThunk = (idRobot) => {
     await response.json();
     dispatch(deleteRobotAction(idRobot));
   };
+};
+
+export const loginUserThunk = (user) => async (dispatch) => {
+  const response = await axios.post(`${URLApi}users`, user);
+
+  if (response.status === 200) {
+    const token = response.data.token;
+    const user = jwtDecode(token);
+    dispatch(loginUserAction(user));
+    localStorage.setItem("user", JSON.stringify({ token: token }));
+  }
 };
