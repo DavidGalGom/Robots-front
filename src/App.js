@@ -1,13 +1,6 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-
 import RobotList from "./pages/RobotList/RobotList";
 import Login from "./pages/Login/Login";
 import Logout from "./pages/Logout/Logout";
@@ -19,23 +12,13 @@ function App() {
       <Router>
         <h1>Robots: FIRST Full stack App</h1>
         <Header />
-        <Switch>
-          <Route path="/Login" exact>
-            <Login />
-          </Route>
-          <Route path="/RobotList" exact>
-            <RobotList />
-          </Route>
-          <Route path="/Logout" exact>
-            <Logout />
-          </Route>
-          <Route path="/" exact>
-            <Redirect to="/RobotList" />
-          </Route>
-          <Route path="*">
-            <NotFoundPage />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/RobotList" element={<RobotList />} />
+          <Route path="/Logout" element={<Logout />} />
+          <Route path="/" element={<RobotList />} />
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
       </Router>
     </>
   );
