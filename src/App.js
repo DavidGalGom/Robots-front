@@ -1,15 +1,25 @@
 import "./App.css";
-import FormCreate from "./components/FormCreate/FormCreate";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import List from "./components/List/List";
+import RobotList from "./pages/RobotList/RobotList";
+import Login from "./pages/Login/Login";
+import Logout from "./pages/Logout/Logout";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
     <>
-      <h1>Robots: FIRST Full stack App</h1>
-      <Header />
-      <List />
-      <FormCreate />
+      <Router>
+        <h1>Robots: FIRST Full stack App</h1>
+        <Header />
+        <Routes>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/RobotList" element={<RobotList />} />
+          <Route path="/Logout" element={<Logout />} />
+          <Route path="/" element={<RobotList />} />
+          <Route path="/*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
     </>
   );
 }
