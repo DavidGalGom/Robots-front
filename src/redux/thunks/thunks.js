@@ -11,14 +11,14 @@ const URLApi = process.env.REACT_APP_API_URL;
 const URLUser = "https://robots-api-bb8.herokuapp.com/users";
 //const URLlocal = "http://localhost:4040/users";
 
-export const loadRobotsThunk = () => {
-  return async (dispatch) => {
-    const response = await fetch(URLApi);
-    const robots = await response.json();
-    dispatch(loadRobotsAction(robots));
-  };
+export const loadRobotsThunk = () => async (dispatch) => {
+  const { token } = JSON.parse(localStorage.getItem("user"));
+  const response = await axios.get(URLApi, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const robots = response.data;
+  dispatch(loadRobotsAction(robots));
 };
-
 export const createRobotThunk = (robot) => {
   return async (dispatch) => {
     const response = await fetch(URLApi + "/create", {
