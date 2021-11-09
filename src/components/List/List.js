@@ -3,17 +3,17 @@ import useRobots from "../../hook/useRobots";
 import Robot from "../Robot/Robot";
 
 const List = () => {
-  const { robots, loadRobots } = useRobots();
+  const { robot, loadRobots } = useRobots();
 
   useEffect(() => {
     loadRobots();
   }, [loadRobots]);
 
-  return (
+  return robot ? (
     <>
       <h2>Robots List</h2>
       <div>
-        {robots.map((robot) => (
+        {robot.map((robot) => (
           <Robot
             _id={robot._id}
             key={robot._id}
@@ -26,6 +26,8 @@ const List = () => {
         ))}
       </div>
     </>
+  ) : (
+    <h1>Loading</h1>
   );
 };
 

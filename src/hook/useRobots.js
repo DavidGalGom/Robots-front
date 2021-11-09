@@ -13,7 +13,7 @@ import {
 } from "../redux/thunks/thunks";
 
 const useRobots = () => {
-  const robots = useSelector((store) => store.robots);
+  const { user, robot } = useSelector((store) => store);
   const dispatch = useDispatch();
   const loadRobots = useCallback(() => {
     dispatch(loadRobotsThunk());
@@ -52,7 +52,8 @@ const useRobots = () => {
   }, [dispatch]);
 
   return {
-    robots,
+    robot,
+    user,
     loadRobots,
     createRobot,
     deleteRobot,

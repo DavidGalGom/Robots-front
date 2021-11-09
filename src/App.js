@@ -16,7 +16,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/RobotList" element={<RobotList />} />
           <Route path="/Logout" element={<Logout />} />
-          <Route path="/" element={<RobotList />} />
+          <Route path="/" element={<Login />} />
           <Route path="/*" element={<NotFoundPage />} />
         </Routes>
       </Router>

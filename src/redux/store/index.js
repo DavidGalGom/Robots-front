@@ -1,9 +1,7 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import robotReducer from "../reducers/robotReducer";
+import { applyMiddleware, createStore } from "redux";
+import rootReducer from "../reducers/rootReducer";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-
-const rootReducer = combineReducers({ robots: robotReducer });
 
 const configureStore = (initialValues) => {
   return createStore(

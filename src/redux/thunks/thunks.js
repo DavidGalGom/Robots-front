@@ -8,16 +8,17 @@ import {
 } from "../actions/actionCreators";
 
 const URLApi = process.env.REACT_APP_API_URL;
-const URLUser = "https://robots-api-bb8.herokuapp.com";
+const URLUser = "https://robots-api-bb8.herokuapp.com/users";
+//const URLlocal = "http://localhost:4040/users";
 
-export const loadRobotsThunk = () => {
-  return async (dispatch) => {
-    const response = await fetch(URLApi);
-    const robots = await response.json();
-    dispatch(loadRobotsAction(robots));
-  };
+export const loadRobotsThunk = () => async (dispatch) => {
+  const { token } = JSON.parse(localStorage.getItem("user"));
+  const response = await axios.get(URLApi, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  const robots = response.data;
+  dispatch(loadRobotsAction(robots));
 };
-
 export const createRobotThunk = (robot) => {
   return async (dispatch) => {
     const response = await fetch(URLApi + "/create", {
@@ -43,9 +44,8 @@ export const deleteRobotThunk = (idRobot) => {
 };
 
 export const loginUserThunk = (user) => async (dispatch) => {
-  const response = await axios.post(`${URLUser}/users`, user);
+  const response = await axios.post(`${URLUser}`, user);
 
-  console.log(response);
   if (response.status === 200) {
     const token = response.data.token;
     const user = jwtDecode(token);
