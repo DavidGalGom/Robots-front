@@ -19,28 +19,20 @@ export const loadRobotsThunk = () => async (dispatch) => {
   const robots = response.data;
   dispatch(loadRobotsAction(robots));
 };
-export const createRobotThunk = (robot) => {
-  return async (dispatch) => {
-    const response = await fetch(URLApi + "/create", {
-      method: "POST",
-      body: JSON.stringify(robot),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const newRobot = await response.json();
-    dispatch(createRobotAction(newRobot));
-  };
+export const createRobotThunk = (robot) => async (dispatch) => {
+  const { token } = JSON.parse(localStorage.getItem("user"));
+  const { data: newRobot } = await axios.post(URLApi + "/create", robot, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  dispatch(createRobotAction(newRobot));
 };
 
-export const deleteRobotThunk = (idRobot) => {
-  return async (dispatch) => {
-    const response = await fetch(`${URLApi}/delete/${idRobot}`, {
-      method: "DELETE",
-    });
-    await response.json();
-    dispatch(deleteRobotAction(idRobot));
-  };
+export const deleteRobotThunk = (idRobot) => async (dispatch) => {
+  const { token } = JSON.parse(localStorage.getItem("user"));
+  await axios.delete(`${URLApi}/delete/${idRobot}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  dispatch(deleteRobotAction(idRobot));
 };
 
 export const loginUserThunk = (user) => async (dispatch) => {

@@ -4,7 +4,6 @@ import Button from "../../components/Button/Button";
 const Logout = () => {
   const logOut = () => {
     localStorage.removeItem("user");
-
     logoutUser();
   };
   return (
